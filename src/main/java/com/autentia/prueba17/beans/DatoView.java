@@ -36,7 +36,7 @@ public class DatoView implements Serializable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DatoView.class);
 
-    /** dato valido a guardar */
+
     @Valid
     private DatoClimatologico datoClimatologico;
 
