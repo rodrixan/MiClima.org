@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapeado y consultas de la tabla dias -->
+<!-- Tabla: -->
+<!-- id(PK) | tipodia -->
+<mapper namespace="com.autentia.prueba17.mybatis.mappers.DiaMapper">
+
+	<!-- sentencia select: selecciona un dia por su id -->
+	<select id="selectDia" resultType="com.autentia.prueba17.pojos.TipoDia">
+		select * from dias where id
+		= #{id}
+	</select>
+	
+	<!-- sentencia select: selecciona todos los dias de la tabla -->
+	<select id="selectAll" resultType="com.autentia.prueba17.pojos.TipoDia">
+		select * from dias
+	</select>
+	
+	<!-- sentencia select: selecciona los nombres de los tipos de dia -->
+	<select id="selectAllNombres" resultType="string">
+		select tipodia from dias
+	</select>
+
+</mapper>
+  

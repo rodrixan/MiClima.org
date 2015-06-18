@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<!-- Configuracion de MyBatis -->
+<configuration>
+	<!-- propiedades: de donde se leen y las propiedades por defecto -->
+	<properties resource="mybatis/conf/config.properties">
+		<property name="username" value="webapp" />
+		<property name="password" value="webapp" />
+	</properties>
+	
+	<environments default="development">
+		<environment id="development">
+			<!-- tipo de acceso a base de datos: JDBC-->
+			<transactionManager type="JDBC" />
+			<!-- propiedades del datasource -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- mappers: definen la interfaz para actuar sobre una tabla -->
+	<!-- Tablas: -->
+	<!-- 	- datos -->
+	<!-- 	- dias -->
+	<!-- 	- localidades -->
+	<mappers>
+		<package name="com.autentia.prueba17.mybatis.mappers"/>
+	</mappers>
+</configuration>

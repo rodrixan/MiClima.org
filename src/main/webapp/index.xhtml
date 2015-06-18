@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<!-- Pagina de inicio: permite seleccionar las dos funcionalidades de la aplicacion -->
+<h:head>
+	<title>Inicio</title>
+</h:head>
+<body>
+	<h:form id="select">
+		<p:panel header="MiClima.org" style="center">
+		<p:graphicImage url="http://noticias.starmedia.com/imagenes/2013/04/clima.jpg" width="800px" height="500px"/>
+		<!-- navegacion: listado de datos y añadir datos -->
+			<h:panelGrid columns="2" cellpadding="5" style="center">
+				<p:commandButton id="listado" value="Listado de Datos" icon="ui-icon-document" action="listadatos"/>
+				<p:commandButton id="nuevo" value="Añadir Nuevo Dato"  icon="ui-icon-pencil" action="nuevodato"/>
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</body>
+</html>

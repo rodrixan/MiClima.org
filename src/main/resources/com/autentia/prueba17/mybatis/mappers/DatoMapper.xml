@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapeado y consultas de la tabla datos -->
+<!-- Tabla: -->
+<!-- id(PK) | validado | localidad(FK-localidades) | temperatura | humedad 
+	| precipitacion | fecha | tipodia(FK- dias) -->
+<mapper namespace="com.autentia.prueba17.mybatis.mappers.DatoMapper">
+
+	<!-- sentencia insert: recibe un dato validado y lo inserta en la tabla 
+		datos -->
+	<insert id="insertDato" useGeneratedKeys="true" keyProperty="id"
+		parameterType="com.autentia.prueba17.pojos.DatoClimatologico">
+
+		insert into datos (validado, localidad, temperatura,
+		humedad, precipitacion,
+		fecha, tipodia) values
+		(#{validado},#{localidad},
+		#{temperatura},#{humedad},#{precipitacion},#{fecha},#{tipodia})
+
+	</insert>
+
+	<!-- sentencia select: selecciona un dato por su id -->
+	<select id="getDato" resultType="com.autentia.prueba17.pojos.DatoClimatologico">
+
+		select * from datos where id
+		= #{id}
+
+	</select>
+
+	<!-- sentencia select: selecciona todos los datos de la tabla -->
+	<select id="getAll" resultType="com.autentia.prueba17.pojos.DatoClimatologico">
+
+		select * from datos
+
+	</select>
+
+	<!-- sentencia select: selecciona todos los datos validados de la tabla -->
+	<select id="getAllValidados" resultType="com.autentia.prueba17.pojos.DatoClimatologico">
+
+		select * from datos
+		where validado=true
+
+	</select>
+
+	<!-- sentencia select: selecciona los datos ordenados por localidad -->
+	<select id="getAllOrderLoc" resultType="com.autentia.prueba17.pojos.DatoClimatologico">
+
+		select * from datos order
+		by localidad desc
+
+	</select>
+
+	<!-- sentencia select: selecciona los datos ordenados por temperatura -->
+	<select id="getAllOrderTemp" resultType="com.autentia.prueba17.pojos.DatoClimatologico">
+
+		select * from datos
+		order
+		by temperatura desc
+
+	</select>
+
+	<!-- sentencia select: selecciona los datos que tengan una localidad dada -->
+	<select id="getDatoConLoc" resultType="com.autentia.prueba17.pojos.DatoClimatologico"
+		parameterType="String">
+
+		select * from datos where
+		localidad=#{localidad} order
+		by
+		localidad desc
+
+	</select>
+
+</mapper>
+  

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapeado y consultas de la tabla pruebatabla -->
+<!-- Tabla: columna1 | id(pk) | columna2 -->
+<mapper namespace="com.autentia.prueba17.mybatis.mappers.TestMapper">
+
+	<!-- select: devuelve un objeto asociado a un id -->
+	<select id="findById" resultType="com.autentia.prueba17.pojos.TestPOJO"
+		parameterType="long">
+		select * from pruebatabla where id=#{id}
+	</select>
+	
+	<!-- select: devuelve todos los datos de la tabla -->
+	<select id="getAll" resultType="com.autentia.prueba17.pojos.TestPOJO">
+		select * from pruebatabla
+	</select>
+
+	<!-- insert: inserta un nuevo dato en la tabla -->
+	<insert id="insert">
+		insert into pruebatabla (id,columna1, columna2)
+		values
+		(#{id}, #{columna1},#{columna2})
+	</insert>
+
+	<!-- update: actualiza informacion de un dato -->
+	<update id="update" parameterType="com.autentia.prueba17.pojos.TestPOJO">
+		update pruebatabla set
+		columna1 =
+		#{columna1},
+		columna2 = #{columna2}
+		where
+		id = #{id}
+	</update>
+
+	<!-- delete: borra el registro de un dato -->
+	<delete id="remove" parameterType="com.autentia.prueba17.pojos.TestPOJO">
+		delete from pruebatabla where
+		id = #{id}
+	</delete>
+
+</mapper>
+  
