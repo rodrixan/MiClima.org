@@ -95,6 +95,9 @@ public class DatoView implements Serializable {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, OK_MSG, datoClimatologico.toString());
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
+    
+    
+    
 
     /** Getters/Setters */
 

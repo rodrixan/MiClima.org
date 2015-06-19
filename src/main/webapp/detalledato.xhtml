@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<!-- Pagina de creación de datos: crea y añade un nuevo dato a la base de datos -->
+<h:head>
+	<title>Detalle de dato</title>
+</h:head>
+<body>
+	<h:form id="detalle">
+
+		<p:panel header="MiClima.org - Detalle de Dato">
+			<h:panelGrid columns="3" cellpadding="5">
+				<!-- campo "localidad" -->
+				<h:outputText value="Localidad:" />
+				<h:outputText value="#{flash.datoSeleccionado.localidad}"
+					style="font-weight:bold" />
+
+				<!-- campo "temperatura" -->
+				<h:outputText value="Temperatura (ºC):" />
+				<h:outputText value="#{flash.datoSeleccionado.temperatura}"
+					style="font-weight:bold" />
+
+				<!-- campo "huemdad" -->
+				<h:outputText value="Humedad (%):" />
+				<h:outputText value="#{flash.datoSeleccionado.humedad}"
+					style="font-weight:bold" />
+
+				<!-- campo "precipitacion" -->
+				<h:outputText value="Precipitación (mm):" />
+				<h:outputText value="#{flash.datoSeleccionado.precipitacion}"
+					style="font-weight:bold" />
+
+
+				<!-- campo "fecha" -->
+				<h:outputText value="Fecha:" />
+				<h:outputText value="#{flash.datoSeleccionado.fecha}"
+					style="font-weight:bold">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+
+				<!-- campo "tipo de dia" -->
+				<h:outputText value="Tipo de día:" />
+				<h:outputText value="#{flash.datoSeleccionado.tipodia}"
+					style="font-weight:bold" />
+
+			</h:panelGrid>
+			<!-- navegacion: volver a menu principal e ir a listado de datos -->
+			<p:commandButton id="listado" value="Listado de Datos"
+				icon="ui-icon-document" action="listadatos" validateClient="false"
+				immediate="true" ajax="false" />
+			<p:commandButton id="volver" value="Volver a Inicio"
+				icon="ui-icon-home" action="index" validateClient="false"
+				immediate="true" ajax="false" />
+
+		</p:panel>
+	</h:form>
+</body>
+</html>

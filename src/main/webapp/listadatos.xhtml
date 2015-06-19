@@ -18,9 +18,13 @@
 
 				<!-- widgetbar: permite filtrado por categorias -->
 				<p:dataTable id="tablaDeDatos" var="dato"
-					value="#{listadoView.listaDatosClimatologicos}" paginator="true" rows="10"
-					widgetVar="datoTabla" emptyMessage="No hay datos para ese filtro"
-					filteredValue="#{listadoView.listaDatosFiltrada}">
+					value="#{listadoView.listaDatosClimatologicos}" paginator="true"
+					rows="10" selection="#{listadoView.datoSeleccionado}"
+					selectionMode="single" rowKey="#{dato.id}" widgetVar="datoTabla"
+					emptyMessage="No hay datos para ese filtro"
+					filteredValue="#{listadoView.listaDatosFiltrada}"
+					singleClickSelect="true">
+					<p:ajax event="rowSelect" listener="#{listadoView.onRowSelectNavigate}"  />  
 
 					<!-- Columna localidades: permite filtrado y ordenacion por localidad -->
 					<p:column id="localCol" filterBy="#{dato.localidad}"
@@ -69,8 +73,7 @@
 			<p:commandButton id="nuevo" value="Añadir Nuevo Dato"
 				icon="ui-icon-pencil" action="nuevodato" />
 			<p:commandButton id="volver" value="Volver a Inicio" action="index"
-				validateClient="false" immediate="true" ajax="false"
-				icon="ui-icon-home" />
+				validateClient="false" immediate="true" icon="ui-icon-home" />
 		</p:panel>
 	</h:form>
 </body>
