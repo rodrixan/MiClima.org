@@ -117,6 +117,7 @@ public class DatoClimatologico implements Serializable {
     }
 
     public Date getFecha() {
+  
         return (fecha != null) ? new Date(fecha.getTime()) : null;
     }
 
