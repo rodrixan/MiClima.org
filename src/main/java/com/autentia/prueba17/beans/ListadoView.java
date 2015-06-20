@@ -34,7 +34,7 @@ public class ListadoView implements Serializable {
     private List<DatoClimatologico> listaDatosFiltrada;
 
     private List<String> localidades = null;
-    
+
     private DatoClimatologico datoSeleccionado;
 
     @ManagedProperty("#{servicioLocalidad}")
@@ -50,24 +50,24 @@ public class ListadoView implements Serializable {
         listaDatosClimatologicos = servicioDatoClimatologico.getAllValidate();
         LOGGER.info("Lectura de base de datos: localidades y datos");
     }
-    
-    /** Navegacion y muestra de detalle*/
-    public void onRowSelectNavigate(SelectEvent event) {  
-        FacesContext.getCurrentInstance().getExternalContext().getFlash().put("datoSeleccionado", event.getObject());  
-        
-        LOGGER.info("Seleccionado dato con id: {}",datoSeleccionado.getId());
-        
+
+    /** Navegacion y muestra de detalle */
+    public void onRowSelectNavigate(SelectEvent event) {
+        FacesContext.getCurrentInstance().getExternalContext().getFlash().put("datoSeleccionado", event.getObject());
+
+        LOGGER.info("Seleccionado dato con id: {}", datoSeleccionado.getId());
+
         goToDetailPage();
     }
 
-	private void goToDetailPage() {
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("detalledato.xhtml");
-			LOGGER.info("Navegación correcta");
-		} catch (IOException e) {
-			LOGGER.error("Fallo en navegación");
-		}
-	}
+    private void goToDetailPage() {
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("detalledato.xhtml");
+            LOGGER.info("Navegación correcta");
+        } catch (IOException e) {
+            LOGGER.error("Fallo en navegación: {}", e);
+        }
+    }
 
     /** Getters/Setters */
     public List<DatoClimatologico> getListaDatosClimatologicos() {
@@ -102,11 +102,11 @@ public class ListadoView implements Serializable {
         this.servicioLocalidad = servicioLocalidad;
     }
 
-	public DatoClimatologico getDatoSeleccionado() {
-		return datoSeleccionado;
-	}
+    public DatoClimatologico getDatoSeleccionado() {
+        return datoSeleccionado;
+    }
 
-	public void setDatoSeleccionado(DatoClimatologico datoSeleccionado) {
-		this.datoSeleccionado = datoSeleccionado;
-	}
+    public void setDatoSeleccionado(DatoClimatologico datoSeleccionado) {
+        this.datoSeleccionado = datoSeleccionado;
+    }
 }
