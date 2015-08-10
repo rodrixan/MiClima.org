@@ -3,10 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- Mapeado y consultas de la tabla datos -->
-<!-- Tabla: -->
-<!-- id(PK) | validado | localidad(FK-localidades) | temperatura | humedad 
-	| precipitacion | fecha | tipodia(FK- dias) -->
 <mapper namespace="com.autentia.prueba17.mybatis.mappers.ClimaticDataMapper">
 
 	<!-- sentencia insert: recibe un dato validado y lo inserta en la tabla 
@@ -14,9 +10,9 @@
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id"
 		parameterType="com.autentia.prueba17.model.ClimaticData">
 
-		insert into datos (validado, localidad, temperatura,
-		humedad, precipitacion,
-		fecha, tipodia) values
+		insert into climaticdata (validated, cityname, temperature,
+		humidity, precipitation,
+		date, daytypename) values
 		(#{validated},#{cityName},
 		#{temperature},#{humidity},#{precipitation},#{date},#{dayTypeName})
 
@@ -25,7 +21,7 @@
 	<!-- sentencia select: selecciona un dato por su id -->
 	<select id="get" resultType="com.autentia.prueba17.model.ClimaticData">
 
-		select * from datos where id
+		select * from climaticdata where id
 		= #{id}
 
 	</select>
@@ -33,43 +29,15 @@
 	<!-- sentencia select: selecciona todos los datos de la tabla -->
 	<select id="getAll" resultType="com.autentia.prueba17.model.ClimaticData">
 
-		select * from datos
+		select * from climaticdata
 
 	</select>
 
 	<!-- sentencia select: selecciona todos los datos validados de la tabla -->
 	<select id="getAllValidated" resultType="com.autentia.prueba17.model.ClimaticData">
 
-		select * from datos
-		where validado=true
-
-	</select>
-
-	<!-- sentencia select: selecciona los datos ordenados por localidad -->
-	<select id="getAllOrderByCity" resultType="com.autentia.prueba17.model.ClimaticData">
-
-		select * from datos order
-		by localidad desc
-
-	</select>
-
-	<!-- sentencia select: selecciona los datos ordenados por temperatura -->
-	<select id="getAllOrderByTemperature" resultType="com.autentia.prueba17.model.ClimaticData">
-
-		select * from datos
-		order
-		by temperatura desc
-
-	</select>
-
-	<!-- sentencia select: selecciona los datos que tengan una localidad dada -->
-	<select id="getAlLFilterByCity" resultType="com.autentia.prueba17.model.ClimaticData"
-		parameterType="String">
-
-		select * from datos where
-		localidad=#{localidad} order
-		by
-		localidad desc
+		select * from climaticdata
+		where validated=true
 
 	</select>
 

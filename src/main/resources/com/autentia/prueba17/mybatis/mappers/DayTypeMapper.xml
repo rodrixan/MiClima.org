@@ -10,18 +10,18 @@
 
 	<!-- sentencia select: selecciona un dia por su id -->
 	<select id="get" resultType="com.autentia.prueba17.model.DayType">
-		select * from dias where id
+		select * from daytypes where id
 		= #{id}
 	</select>
 	
 	<!-- sentencia select: selecciona todos los dias de la tabla -->
 	<select id="getAll" resultType="com.autentia.prueba17.model.DayType">
-		select * from dias
+		select * from daytypes
 	</select>
 	
 	<!-- sentencia select: selecciona los nombres de los tipos de dia -->
 	<select id="getAllDayTypesNames" resultType="string">
-		select tipodia from dias
+		select daytypename from daytypes
 	</select>
 
 </mapper>

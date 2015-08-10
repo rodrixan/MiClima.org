@@ -44,7 +44,7 @@ public class ClimaticData implements Serializable {
         this.temperature = temperature;
         this.humidity = humidity;
         this.precipitation = precipitation;
-        this.setFecha(date);
+        this.setDate(date);
         this.dayTypeName = dayTypeName;
     }
 
@@ -56,60 +56,60 @@ public class ClimaticData implements Serializable {
         this.id = id;
     }
 
-    public boolean isValidado() {
+    public boolean isValidated() {
         return validated;
     }
 
-    public void setValidado(boolean validated) {
+    public void setValidated(boolean validated) {
         this.validated = validated;
     }
 
-    public String getLocalidad() {
+    public String getCityName() {
         return cityName;
     }
 
-    public void setLocalidad(String cityName) {
+    public void setCityName(String cityName) {
         this.cityName = cityName;
     }
 
-    public Integer getTemperatura() {
+    public Integer getTemperature() {
         return temperature;
     }
 
-    public void setTemperatura(Integer temperature) {
+    public void setTemperature(Integer temperature) {
         this.temperature = temperature;
     }
 
-    public Integer getHumedad() {
+    public Integer getHumidity() {
         return humidity;
     }
 
-    public void setHumedad(Integer humidity) {
+    public void setHumidity(Integer humidity) {
         this.humidity = humidity;
     }
 
-    public Integer getPrecipitacion() {
+    public Integer getPrecipitation() {
         return precipitation;
     }
 
-    public void setPrecipitacion(Integer precipitation) {
+    public void setPrecipitation(Integer precipitation) {
         this.precipitation = precipitation;
     }
 
-    public Date getFecha() {
+    public Date getDate() {
 
         return (date != null) ? new Date(date.getTime()) : null;
     }
 
-    public void setFecha(Date date) {
+    public void setDate(Date date) {
         this.date = (date != null) ? new Date(date.getTime()) : null;
     }
 
-    public String getTipoDia() {
+    public String getDayTypeName() {
         return dayTypeName;
     }
 
-    public void setTipoDia(String dayTypeName) {
+    public void setDayTypeName(String dayTypeName) {
         this.dayTypeName = dayTypeName;
     }
 

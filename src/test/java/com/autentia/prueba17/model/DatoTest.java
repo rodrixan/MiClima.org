@@ -31,24 +31,24 @@ public class DatoTest {
     public void testFechaOK() {
 
         final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        assertEquals(sdf.format(datoTest.getFecha()), "21/12/2015");
+        assertEquals(sdf.format(datoTest.getDate()), "21/12/2015");
     }
 
     @Test
     public void testFechaNull() {
-        datoTest.setFecha(null);
-        assertEquals(datoTest.getFecha(), null);
+        datoTest.setDate(null);
+        assertEquals(datoTest.getDate(), null);
     }
 
     @Test
     public void testToStringValidado() {
-        datoTest.setValidado(true);
+        datoTest.setValidated(true);
         assertTrue(datoTest.toString().contains("validado"));
     }
 
     @Test
     public void testToStringNoValidado() {
-        datoTest.setValidado(false);
+        datoTest.setValidated(false);
         assertTrue(datoTest.toString().contains("no validado"));
     }
 

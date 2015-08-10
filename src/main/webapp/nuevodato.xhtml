@@ -22,13 +22,13 @@
 				<!-- puede ser true o false -->
 				<h:outputLabel for="valido" value="Validado" />
 				<p:selectBooleanCheckbox id="valido"
-					value="#{climaticDataView.climaticData.validado}" />
+					value="#{climaticDataView.climaticData.validated}" />
 				<p:message for="valido" />
 
 				<!-- campo "localidad" y mensaje asociado (en caso de error de validacion) -->
 				<!-- toma las localidades de la base de datos -->
 				<h:outputLabel for="localidad" value="Localidad" />
-				<p:selectOneMenu id="localidad" value="#{climaticDataView.climaticData.localidad}"
+				<p:selectOneMenu id="localidad" value="#{climaticDataView.climaticData.cityName}"
 					required="true" requiredMessage="#{climaticDataView.reqMsg}"
 					style="width:125px" label="Localidad">
 					<f:selectItem itemLabel="Localidades" itemValue="" />
@@ -41,7 +41,7 @@
 				<!-- campo "temperatura" y mensaje asociado (en caso de error de validacion) -->
 				<!-- puede tomar cualquier valor entero -->
 				<h:outputLabel for="temp" value="Temperatura (ºC)" />
-				<p:inputText id="temp" value="#{climaticDataView.climaticData.temperatura}"
+				<p:inputText id="temp" value="#{climaticDataView.climaticData.temperature}"
 					required="true" requiredMessage="#{climaticDataView.reqMsg}"
 					label="Temperatura" style="width: 50px" />
 				<p:message for="temp" />
@@ -49,7 +49,7 @@
 				<!-- campo "huemdad" y mensaje asociado (en caso de error de validacion) -->
 				<!-- puede tomar valores entre 0 y 100 por ser un porcentaje-->
 				<h:outputLabel for="hum" value="Humedad (%)" />
-				<p:inputText id="hum" value="#{climaticDataView.climaticData.humedad}" required="true"
+				<p:inputText id="hum" value="#{climaticDataView.climaticData.humidity}" required="true"
 					requiredMessage="#{climaticDataView.reqMsg}" label="Humedad"
 					style="width: 50px">
 					<f:validateLongRange minimum="0" maximum="100"></f:validateLongRange>
@@ -59,7 +59,7 @@
 				<!-- campo "precipitacion" y mensaje asociado (en caso de error de validacion) -->
 				<!-- puede tomar cualquier valor positivo, aunque aquí se limita a 1000 -->
 				<h:outputLabel for="prec" value="Precipitación (mm)" />
-				<p:inputText id="prec" value="#{climaticDataView.climaticData.precipitacion}"
+				<p:inputText id="prec" value="#{climaticDataView.climaticData.precipitation}"
 					required="true" requiredMessage="#{climaticDataView.reqMsg}"
 					label="Precipitacion" style="width: 50px" >
 					<f:validateLongRange minimum="0" maximum="1000"></f:validateLongRange>
@@ -70,14 +70,14 @@
 				<!-- puede ser cualquier día -->
 				<p:outputLabel for="fecha" value="Fecha" />
 				<p:calendar id="fecha" required="true"
-					requiredMessage="#{climaticDataView.reqMsg}" value="#{climaticDataView.climaticData.fecha}"
+					requiredMessage="#{climaticDataView.reqMsg}" value="#{climaticDataView.climaticData.date}"
 					showOn="button" pattern="dd/MM/yyyy" label="Fecha" />
 				<p:message for="fecha" />
 
 				<!-- campo "tipo de dia" y mensaje asociado (en caso de error de validacion) -->
 				<!-- toma los tipos de dias de la base de datos -->
 				<h:outputLabel for="tipodia" value="Tipo de día" />
-				<p:selectOneMenu id="tipodia" value="#{climaticDataView.climaticData.tipoDia}"
+				<p:selectOneMenu id="tipodia" value="#{climaticDataView.climaticData.dayTypeName}"
 					required="true" requiredMessage="#{climaticDataView.reqMsg}"
 					style="width:125px" label="Día">
 					<f:selectItem itemLabel="Tipo de Día" itemValue="" />

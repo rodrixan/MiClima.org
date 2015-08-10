@@ -27,8 +27,8 @@
 					<p:ajax event="rowSelect" listener="#{climaticDataListView.onRowSelectNavigate}"  />  
 
 					<!-- Columna localidades: permite filtrado y ordenacion por localidad -->
-					<p:column id="localCol" filterBy="#{climaticData.localidad}"
-						filterMatchMode="exact" sortBy="#{climaticData.localidad}">
+					<p:column id="localCol" filterBy="#{climaticData.cityName}"
+						filterMatchMode="exact" sortBy="#{climaticData.cityName}">
 						<f:facet name="filter">
 							<p:selectOneMenu onchange="PF('datoTabla').filter()">
 								<f:selectItem itemLabel="Localidad" itemValue="#{null}"
@@ -36,35 +36,35 @@
 								<f:selectItems value="#{climaticDataListView.cityNames}" />
 							</p:selectOneMenu>
 						</f:facet>
-						<h:outputText value="#{climaticData.localidad}" />
+						<h:outputText value="#{climaticData.cityName}" />
 					</p:column>
 
 					<!-- Columna fecha -->
 					<p:column id="fechaCol" headerText="Fecha (dd/mm/aaaa)">
-						<h:outputText value="#{climaticData.fecha}">
+						<h:outputText value="#{climaticData.date}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>
 					</p:column>
 
 					<!-- Columna temperatura: permite ordenacion por temperatura -->
 					<p:column id="tempCol" headerText="Temperatura (ºC)"
-						sortBy="#{climaticData.temperatura}">
-						<h:outputText value="#{climaticData.temperatura}" />
+						sortBy="#{climaticData.temperature}">
+						<h:outputText value="#{climaticData.temperature}" />
 					</p:column>
 
 					<!-- Columna humedad -->
 					<p:column id="humCol" headerText="Humedad (%)">
-						<h:outputText value="#{climaticData.humedad}" />
+						<h:outputText value="#{climaticData.humidity}" />
 					</p:column>
 
 					<!-- Columna precipitacion -->
 					<p:column id="precCol" headerText="Precipitación (mm)">
-						<h:outputText value="#{climaticData.precipitacion}" />
+						<h:outputText value="#{climaticData.precipitation}" />
 					</p:column>
 
 					<!-- Columna del tipo de día -->
 					<p:column id="diaCol" headerText="Tipo de Día">
-						<h:outputText value="#{climaticData.tipoDia}" />
+						<h:outputText value="#{climaticData.dayTypeName}" />
 					</p:column>
 
 				</p:dataTable>

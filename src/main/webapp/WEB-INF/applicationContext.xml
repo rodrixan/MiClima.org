@@ -13,7 +13,7 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://localhost:5432/climadb" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/miclimadb" />
 		<property name="username" value="webapp" />
 		<property name="password" value="webapp" />
 	</bean>

@@ -3,27 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- Mapeado y consultas de la tabla dias -->
-<!-- Tabla: -->
-<!-- id(PK) | nombre -->
+
 <mapper namespace="com.autentia.prueba17.mybatis.mappers.CityMapper">
 
 	<!-- sentencia select: selecciona una localidad por su id -->
 	<select id="get" resultType="com.autentia.prueba17.model.City">
 		select * from
-		localidades where id
+		cities where id
 		= #{id}
 	</select>
 
 	<!-- sentencia select: selecciona todas las localidades de la tabla -->
 	<select id="getAll" resultType="com.autentia.prueba17.model.City">
-		select * from localidades
+		select * from cities
 	</select>
 
 	<!-- sentencia select: selecciona los nombres de las localidades -->
 	<select id="getAllCityNames" resultType="string">
-		select nombre from
-		localidades
+		select cityname from
+		cities
 	</select>
 
 </mapper>
