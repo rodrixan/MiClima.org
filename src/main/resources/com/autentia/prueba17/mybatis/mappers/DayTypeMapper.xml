@@ -6,21 +6,21 @@
 <!-- Mapeado y consultas de la tabla dias -->
 <!-- Tabla: -->
 <!-- id(PK) | tipodia -->
-<mapper namespace="com.autentia.prueba17.mybatis.mappers.DiaMapper">
+<mapper namespace="com.autentia.prueba17.mybatis.mappers.DayTypeMapper">
 
 	<!-- sentencia select: selecciona un dia por su id -->
-	<select id="selectDia" resultType="com.autentia.prueba17.pojos.TipoDia">
+	<select id="get" resultType="com.autentia.prueba17.model.DayType">
 		select * from dias where id
 		= #{id}
 	</select>
 	
 	<!-- sentencia select: selecciona todos los dias de la tabla -->
-	<select id="selectAll" resultType="com.autentia.prueba17.pojos.TipoDia">
+	<select id="getAll" resultType="com.autentia.prueba17.model.DayType">
 		select * from dias
 	</select>
 	
 	<!-- sentencia select: selecciona los nombres de los tipos de dia -->
-	<select id="selectAllNombres" resultType="string">
+	<select id="getAllDayTypesNames" resultType="string">
 		select tipodia from dias
 	</select>
 

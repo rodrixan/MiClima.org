@@ -17,54 +17,54 @@
 			<h:panelGrid columns="2" cellpadding="5">
 
 				<!-- widgetbar: permite filtrado por categorias -->
-				<p:dataTable id="tablaDeDatos" var="dato"
-					value="#{listadoView.listaDatosClimatologicos}" paginator="true"
-					rows="10" selection="#{listadoView.datoSeleccionado}"
-					selectionMode="single" rowKey="#{dato.id}" widgetVar="datoTabla"
+				<p:dataTable id="tablaDeDatos" var="climaticData"
+					value="#{climaticDataListView.climaticDataList}" paginator="true"
+					rows="10" selection="#{climaticDataListView.selectedClimaticData}"
+					selectionMode="single" rowKey="#{climaticData.id}" widgetVar="datoTabla"
 					emptyMessage="No hay datos para ese filtro"
-					filteredValue="#{listadoView.listaDatosFiltrada}"
+					filteredValue="#{climaticDataListView.filteredClimaticDataList}"
 					singleClickSelect="true">
-					<p:ajax event="rowSelect" listener="#{listadoView.onRowSelectNavigate}"  />  
+					<p:ajax event="rowSelect" listener="#{climaticDataListView.onRowSelectNavigate}"  />  
 
 					<!-- Columna localidades: permite filtrado y ordenacion por localidad -->
-					<p:column id="localCol" filterBy="#{dato.localidad}"
-						filterMatchMode="exact" sortBy="#{dato.localidad}">
+					<p:column id="localCol" filterBy="#{climaticData.localidad}"
+						filterMatchMode="exact" sortBy="#{climaticData.localidad}">
 						<f:facet name="filter">
 							<p:selectOneMenu onchange="PF('datoTabla').filter()">
 								<f:selectItem itemLabel="Localidad" itemValue="#{null}"
 									noSelectionOption="true" />
-								<f:selectItems value="#{listadoView.localidades}" />
+								<f:selectItems value="#{climaticDataListView.cityNames}" />
 							</p:selectOneMenu>
 						</f:facet>
-						<h:outputText value="#{dato.localidad}" />
+						<h:outputText value="#{climaticData.localidad}" />
 					</p:column>
 
 					<!-- Columna fecha -->
 					<p:column id="fechaCol" headerText="Fecha (dd/mm/aaaa)">
-						<h:outputText value="#{dato.fecha}">
+						<h:outputText value="#{climaticData.fecha}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>
 					</p:column>
 
 					<!-- Columna temperatura: permite ordenacion por temperatura -->
 					<p:column id="tempCol" headerText="Temperatura (ºC)"
-						sortBy="#{dato.temperatura}">
-						<h:outputText value="#{dato.temperatura}" />
+						sortBy="#{climaticData.temperatura}">
+						<h:outputText value="#{climaticData.temperatura}" />
 					</p:column>
 
 					<!-- Columna humedad -->
 					<p:column id="humCol" headerText="Humedad (%)">
-						<h:outputText value="#{dato.humedad}" />
+						<h:outputText value="#{climaticData.humedad}" />
 					</p:column>
 
 					<!-- Columna precipitacion -->
 					<p:column id="precCol" headerText="Precipitación (mm)">
-						<h:outputText value="#{dato.precipitacion}" />
+						<h:outputText value="#{climaticData.precipitacion}" />
 					</p:column>
 
 					<!-- Columna del tipo de día -->
 					<p:column id="diaCol" headerText="Tipo de Día">
-						<h:outputText value="#{dato.tipodia}" />
+						<h:outputText value="#{climaticData.tipoDia}" />
 					</p:column>
 
 				</p:dataTable>

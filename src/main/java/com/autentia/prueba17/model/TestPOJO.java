@@ -1,4 +1,4 @@
-package com.autentia.prueba17.pojos;
+package com.autentia.prueba17.model;
 
 /**
  * Modelizado de la informacion de la tabla pruebatabla Representa un dato climatologico

@@ -2,7 +2,7 @@ package com.autentia.prueba17.mybatis.mappers;
 
 import java.util.List;
 
-import com.autentia.prueba17.pojos.TestPOJO;
+import com.autentia.prueba17.model.TestPOJO;
 
 /**
  * Interfaz de uso de TestMapper: Actua sobre la tabla "pruebatabla"

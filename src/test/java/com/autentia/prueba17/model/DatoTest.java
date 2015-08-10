@@ -1,4 +1,4 @@
-package com.autentia.prueba17.pojos;
+package com.autentia.prueba17.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -12,25 +12,25 @@ import org.junit.Test;
 
 public class DatoTest {
 
-    private DatoClimatologico datoTest;
+    private ClimaticData datoTest;
 
     @Before
     public void setup() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date d = null;
         try {
             d = sdf.parse("21/12/2015");
-        } catch (ParseException e) {
+        } catch (final ParseException e) {
             e.printStackTrace();
         }
 
-        datoTest = new DatoClimatologico(true, "Madrid", 10, 10, 10, d, "Soleado");
+        datoTest = new ClimaticData(true, "Madrid", 10, 10, 10, d, "Soleado");
     }
 
     @Test
     public void testFechaOK() {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         assertEquals(sdf.format(datoTest.getFecha()), "21/12/2015");
     }
 

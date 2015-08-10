@@ -6,22 +6,22 @@
 <!-- Mapeado y consultas de la tabla dias -->
 <!-- Tabla: -->
 <!-- id(PK) | nombre -->
-<mapper namespace="com.autentia.prueba17.mybatis.mappers.LocalidadMapper">
+<mapper namespace="com.autentia.prueba17.mybatis.mappers.CityMapper">
 
 	<!-- sentencia select: selecciona una localidad por su id -->
-	<select id="selectLocalidad" resultType="com.autentia.prueba17.pojos.Localidad">
+	<select id="get" resultType="com.autentia.prueba17.model.City">
 		select * from
 		localidades where id
 		= #{id}
 	</select>
 
 	<!-- sentencia select: selecciona todas las localidades de la tabla -->
-	<select id="selectAll" resultType="com.autentia.prueba17.pojos.Localidad">
+	<select id="getAll" resultType="com.autentia.prueba17.model.City">
 		select * from localidades
 	</select>
 
 	<!-- sentencia select: selecciona los nombres de las localidades -->
-	<select id="selectAllNombres" resultType="string">
+	<select id="getAllCityNames" resultType="string">
 		select nombre from
 		localidades
 	</select>

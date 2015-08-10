@@ -8,13 +8,13 @@
 <mapper namespace="com.autentia.prueba17.mybatis.mappers.TestMapper">
 
 	<!-- select: devuelve un objeto asociado a un id -->
-	<select id="findById" resultType="com.autentia.prueba17.pojos.TestPOJO"
+	<select id="findById" resultType="com.autentia.prueba17.model.TestPOJO"
 		parameterType="long">
 		select * from pruebatabla where id=#{id}
 	</select>
 	
 	<!-- select: devuelve todos los datos de la tabla -->
-	<select id="getAll" resultType="com.autentia.prueba17.pojos.TestPOJO">
+	<select id="getAll" resultType="com.autentia.prueba17.model.TestPOJO">
 		select * from pruebatabla
 	</select>
 
@@ -26,7 +26,7 @@
 	</insert>
 
 	<!-- update: actualiza informacion de un dato -->
-	<update id="update" parameterType="com.autentia.prueba17.pojos.TestPOJO">
+	<update id="update" parameterType="com.autentia.prueba17.model.TestPOJO">
 		update pruebatabla set
 		columna1 =
 		#{columna1},
@@ -36,7 +36,7 @@
 	</update>
 
 	<!-- delete: borra el registro de un dato -->
-	<delete id="remove" parameterType="com.autentia.prueba17.pojos.TestPOJO">
+	<delete id="remove" parameterType="com.autentia.prueba17.model.TestPOJO">
 		delete from pruebatabla where
 		id = #{id}
 	</delete>

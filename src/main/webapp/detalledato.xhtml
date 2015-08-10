@@ -17,35 +17,35 @@
 			<h:panelGrid columns="3" cellpadding="5">
 				<!-- campo "localidad" -->
 				<h:outputText value="Localidad:" />
-				<h:outputText value="#{flash.datoSeleccionado.localidad}"
+				<h:outputText value="#{flash.datoSeleccionado.cityName}"
 					style="font-weight:bold" />
 
 				<!-- campo "temperatura" -->
 				<h:outputText value="Temperatura (ºC):" />
-				<h:outputText value="#{flash.datoSeleccionado.temperatura}"
+				<h:outputText value="#{flash.datoSeleccionado.temperature}"
 					style="font-weight:bold" />
 
 				<!-- campo "huemdad" -->
 				<h:outputText value="Humedad (%):" />
-				<h:outputText value="#{flash.datoSeleccionado.humedad}"
+				<h:outputText value="#{flash.datoSeleccionado.humidity}"
 					style="font-weight:bold" />
 
 				<!-- campo "precipitacion" -->
 				<h:outputText value="Precipitación (mm):" />
-				<h:outputText value="#{flash.datoSeleccionado.precipitacion}"
+				<h:outputText value="#{flash.datoSeleccionado.precipitation}"
 					style="font-weight:bold" />
 
 
 				<!-- campo "fecha" -->
 				<h:outputText value="Fecha:" />
-				<h:outputText value="#{flash.datoSeleccionado.fecha}"
+				<h:outputText value="#{flash.datoSeleccionado.date}"
 					style="font-weight:bold">
 					<f:convertDateTime pattern="dd/MM/yyyy" />
 				</h:outputText>
 
 				<!-- campo "tipo de dia" -->
 				<h:outputText value="Tipo de día:" />
-				<h:outputText value="#{flash.datoSeleccionado.tipodia}"
+				<h:outputText value="#{flash.datoSeleccionado.dayTypeName}"
 					style="font-weight:bold" />
 
 			</h:panelGrid>

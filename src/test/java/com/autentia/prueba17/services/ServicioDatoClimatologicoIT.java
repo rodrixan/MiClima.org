@@ -1,4 +1,4 @@
-package com.autentia.prueba17.servicios;
+package com.autentia.prueba17.services;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -14,7 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.autentia.prueba17.pojos.DatoClimatologico;
+import com.autentia.prueba17.model.ClimaticData;
+import com.autentia.prueba17.services.ClimaticDataService;
 
 /**
  * Prueba de integracion de ServicioDatoClimatologico con su mapper
@@ -30,23 +31,23 @@ import com.autentia.prueba17.pojos.DatoClimatologico;
 public class ServicioDatoClimatologicoIT {
 
     @Autowired
-    ServicioDatoClimatologico servicioDatoClimatologico;
+    ClimaticDataService servicioDatoClimatologico;
 
     @Test
     public void shouldReturnAllDatoClimatologico() {
 
-        List<DatoClimatologico> allDatoClimatologico = servicioDatoClimatologico.getAll();
+        List<ClimaticData> allDatoClimatologico = servicioDatoClimatologico.getAll();
         assertFalse(allDatoClimatologico.isEmpty());
     }
 
     @Test
     public void shouldInsertANewDato() {
-        List<DatoClimatologico> allDatoClimatologico = servicioDatoClimatologico.getAll();
+        List<ClimaticData> allDatoClimatologico = servicioDatoClimatologico.getAll();
         int numberOfDataPrev = allDatoClimatologico.size();
 
-        DatoClimatologico dataToInsert = getDataToInsert();
+        ClimaticData dataToInsert = getDataToInsert();
 
-        servicioDatoClimatologico.save(dataToInsert);
+        servicioDatoClimatologico.insert(dataToInsert);
 
         allDatoClimatologico = servicioDatoClimatologico.getAll();
         int numberOfDataCurr = allDatoClimatologico.size();
@@ -55,10 +56,10 @@ public class ServicioDatoClimatologicoIT {
 
     }
 
-    private DatoClimatologico getDataToInsert() {
-        DatoClimatologico ret = DatoClimatologico.DatoClimatologicoBuilder.anInstance().setValidado(true)
-                .setLocalidad("Madrid").setTemperatura(10).setHumedad(10).setPrecipitacion(10).setFecha(new Date())
-                .setTipoDia("Soleado").build();
+    private ClimaticData getDataToInsert() {
+        ClimaticData ret = ClimaticData.ClimaticDataBuilder.anInstance().setValidated(true)
+                .setCityName("Madrid").setTemperature(10).setHumidity(10).setPrecipitation(10).setDate(new Date())
+                .setDayTypeName("Soleado").build();
 
         return ret;
     }
