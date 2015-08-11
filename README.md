@@ -1,5 +1,17 @@
 # MiClima.org
 
+## Índice de contenidos
+
+- #####[Información Base](#def-infobase)
+- #####[Entorno](#def-entorno)
+- #####[Despliegue](#def-despliegue)
+- #####[Listado de Datos](#def-listado)
+- #####[Detalle de Dato](#def-detalle)
+- #####[Añadir Dato](#def-anadir)
+- #####[Base de Datos](#def-basedatos)
+
+<a name="def-infobase"></a>
+
 ## Información base
 
 Aplicación que gestiona un listado de datos climatológicos en una base de datos.
@@ -12,6 +24,8 @@ Existen cuatro páginas:
 + Añadir dato: crea un nuevo dato y lo añade a la base de datos.
 
 Creada por Rodrigo de Blas
+
+<a name="def-entorno"></a>
 
 ## Entorno
 + Hardware
@@ -31,6 +45,8 @@ Creada por Rodrigo de Blas
 	+ PostgreSQL 9.4
 	+ Apache Tomcat 8.0.23
 
+<a name="def-despliegue"></a>
+
 ## Despliegue
 
 1. Ir al directorio donde esté el fichero `pom.xml`
@@ -47,7 +63,9 @@ Creada por Rodrigo de Blas
     localhost:8080/miclima.org/
     ```
 
-## Listado de datos
+<a name="def-listado"></a>
+
+## Listado de Datos
 
 Muestra una tabla con los datos **validados** que se encuentren en la Base de Datos. Este listado en forma de tabla se encuentra paginado, puediéndose realizar operaciones de ordenación y filtrado (ver más abajo).
 
@@ -68,7 +86,9 @@ Las operaciones permitidas sobre el listado son:
 + Filtrado
     + Localidad
 
-## Detalle de dato
+<a name="def-detalle"></a>
+
+## Detalle de Dato
 Al hacer click en un dato del listado se muestra su página de detalle. Ésta muestra los siguientes datos:
 + Localidad
 + Fecha (dd/mm/aaaa)
@@ -76,6 +96,9 @@ Al hacer click en un dato del listado se muestra su página de detalle. Ésta mu
 + Humedad (%)
 + Precipitación (mm)
 + Tipo de día (soleado, lluvioso...)
+
+
+<a name="def-anadir"></a>
 
 ## Añadir Dato
 Permite añadir a la base de datos un nuevo dato climatológico. Para ello muestra un formulario a rellenar por el usuario con los siguientes campos:
@@ -90,3 +113,35 @@ Permite añadir a la base de datos un nuevo dato climatológico. Para ello muest
     + Fecha del dato (dd/mm/aaaa). Permite seleccionarla de un calendario.
 + Tipo de día
     + Permite seleccionar el tipo de día (nublado, lluvioso, soleado,...) de una lista predefinida.
+    
+<a name="def-basedatos"></a>    
+    
+## Base de Datos
+La aplicación usa una base de datos PostgreSQL cuyo esquema se encuentra en el fichero `miclimadb_schema.sql`. Se facilitan unos datos de prueba que se pueden cargar desde el fichero `miclimadb_data.sql`.
+
+### Datos de conexión con la BD
++ **Driver**: org.postgresql.Driver
++ **URL**: jdbc:postgresql://localhost:5432/miclimadb
++ **User**: webapp
++ **Password**: webapp
+
+### Tablas
+Se dispone de tres tablas con los campos enunciados a continuación (PK = clave primaria, FK = clave foránea).
+
++ cities (ciudades)
+	+ id PK
+	+ cityname (nombre)
+
++ daytypes (tipos de días)
+	+ id PK
+	+ daytypename (nombre)
+
++ climaticdata (datos climatológicos)
+	+ id PK
+	+ cityname FK-cities.cityname (ciudad)
+	+ temperature (temperatura)
+	+ humidity (humedad)
+	+ precipitation (precipitación)
+	+ date (fecha)
+	+ daytypename FK-daytypes.name (tipo de día)
+

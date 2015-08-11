@@ -1,10 +1,8 @@
-package interfaz;
+package com.autentia.prueba17.navigation;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import net.sourceforge.jwebunit.junit.WebTester;
 
 /**
@@ -12,12 +10,10 @@ import net.sourceforge.jwebunit.junit.WebTester;
  *
  * @author Rodrigo de Blas
  */
-public class NavegacionBT extends TestCase {
+public class NavigationBehaviourT {
 
-    // atributo para navegacion
-    private final WebTester tester;
+    private WebTester tester;
 
-    // URLs y paginas de la applicacion
     private static final String BASE_URL = "http://localhost:8080/miclima.org";
 
     private static final String INICIO_PAG = "/index.xhtml";
@@ -26,32 +22,12 @@ public class NavegacionBT extends TestCase {
 
     private static final String LISTADO_PAG = "/listadatos.xhtml";
 
-    /**
-     * Constructor: crea una isntancia del tester
-     *
-     * @param arg0 cadena
-     */
-    public NavegacionBT(String arg0) {
-        super(arg0);
+    @Before
+    protected void setUp() {
         tester = new WebTester();
         tester.getTestContext().setBaseUrl(BASE_URL);
     }
 
-    @Override
-    @Before
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    @Override
-    @After
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * Comprueba que se accede bien a la pagina de a�adir dato
-     */
     @Test
     public void testNuevoDato() {
         // desde la pagina principal
@@ -79,9 +55,6 @@ public class NavegacionBT extends TestCase {
         tester.assertTitleEquals("Añadir nuevo dato");
     }
 
-    /**
-     * Comprueba que se puede acceder a la pagina de listado de datos
-     */
     @Test
     public void testListado() {
         // desde la pagina principal
@@ -109,9 +82,6 @@ public class NavegacionBT extends TestCase {
         tester.assertTitleEquals("Listado de Datos");
     }
 
-    /**
-     * Comprueba que se puede acceder a la pagina principal
-     */
     @Test
     public void testInicio() {
         // desde la pagina de datos

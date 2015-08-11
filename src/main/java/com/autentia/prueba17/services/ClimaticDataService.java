@@ -11,14 +11,8 @@ public interface ClimaticDataService extends Serializable {
 
     ClimaticData get(int id);
 
-    void insert(ClimaticData datoClimatologico);
+    void insert(ClimaticData climaticData);
 
     List<ClimaticData> getAllValidate();
-
-    List<ClimaticData> getAllOrderByLoc();
-
-    List<ClimaticData> getAllOrderByTemp();
-
-    List<ClimaticData> getAllWithLocalization(String localidad);
 
 }

@@ -14,8 +14,8 @@ public class ClimaticDataServiceImpl implements ClimaticDataService {
     private final ClimaticDataMapper climaticDataMapper;
 
     @Autowired
-    public ClimaticDataServiceImpl(ClimaticDataMapper datoMapper) {
-        this.climaticDataMapper = datoMapper;
+    public ClimaticDataServiceImpl(ClimaticDataMapper climaticDataMapper) {
+        this.climaticDataMapper = climaticDataMapper;
     }
 
     @Override
@@ -29,28 +29,13 @@ public class ClimaticDataServiceImpl implements ClimaticDataService {
     }
 
     @Override
-    public void insert(ClimaticData datoClimatologico) {
-        climaticDataMapper.insert(datoClimatologico);
+    public void insert(ClimaticData climaticData) {
+        climaticDataMapper.insert(climaticData);
     }
 
     @Override
     public List<ClimaticData> getAllValidate() {
         return climaticDataMapper.getAllValidated();
-    }
-
-    @Override
-    public List<ClimaticData> getAllOrderByLoc() {
-        return climaticDataMapper.getAllOrderByCity();
-    }
-
-    @Override
-    public List<ClimaticData> getAllOrderByTemp() {
-        return climaticDataMapper.getAllOrderByTemperature();
-    }
-
-    @Override
-    public List<ClimaticData> getAllWithLocalization(String loc) {
-        return climaticDataMapper.getAllFilterByCity(loc);
     }
 
 }

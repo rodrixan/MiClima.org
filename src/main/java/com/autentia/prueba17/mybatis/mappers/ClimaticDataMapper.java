@@ -19,10 +19,4 @@ public interface ClimaticDataMapper extends Serializable {
     List<ClimaticData> getAll();
 
     List<ClimaticData> getAllValidated();
-
-    List<ClimaticData> getAllOrderByCity();
-
-    List<ClimaticData> getAllOrderByTemperature();
-
-    List<ClimaticData> getAllFilterByCity(String cityName);
 }

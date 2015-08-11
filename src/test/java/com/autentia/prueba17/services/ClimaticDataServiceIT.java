@@ -28,7 +28,7 @@ import com.autentia.prueba17.services.ClimaticDataService;
 "classpath:applicationContext-test.xml" })
 @Transactional
 @TransactionConfiguration(defaultRollback = false)
-public class ServicioDatoClimatologicoIT {
+public class ClimaticDataServiceIT {
 
     @Autowired
     ClimaticDataService servicioDatoClimatologico;
