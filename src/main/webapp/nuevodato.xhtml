@@ -28,28 +28,31 @@
 				<!-- campo "localidad" y mensaje asociado (en caso de error de validacion) -->
 				<!-- toma las localidades de la base de datos -->
 				<h:outputLabel for="localidad" value="Localidad" />
-				<p:selectOneMenu id="localidad" value="#{climaticDataView.climaticData.cityName}"
-					required="true" requiredMessage="#{climaticDataView.reqMsg}"
-					style="width:125px" label="Localidad">
+				<p:selectOneMenu id="localidad"
+					value="#{climaticDataView.climaticData.cityName}" required="true"
+					requiredMessage="#{climaticDataView.reqMsg}" style="width:125px"
+					label="Localidad">
 					<f:selectItem itemLabel="Localidades" itemValue="" />
 					<f:selectItems value="#{climaticDataView.cityNames}"
-						requiredMessage="#{climaticDataView.reqMsg}" var="loc" itemLabel="#{loc}"
-						itemValue="#{loc}" />
+						requiredMessage="#{climaticDataView.reqMsg}" var="loc"
+						itemLabel="#{loc}" itemValue="#{loc}" />
 				</p:selectOneMenu>
 				<p:message for="localidad" />
-				
+
 				<!-- campo "temperatura" y mensaje asociado (en caso de error de validacion) -->
 				<!-- puede tomar cualquier valor entero -->
 				<h:outputLabel for="temp" value="Temperatura (ºC)" />
-				<p:inputText id="temp" value="#{climaticDataView.climaticData.temperature}"
+				<p:inputText id="temp"
+					value="#{climaticDataView.climaticData.temperature}"
 					required="true" requiredMessage="#{climaticDataView.reqMsg}"
 					label="Temperatura" style="width: 50px" />
 				<p:message for="temp" />
-				
+
 				<!-- campo "huemdad" y mensaje asociado (en caso de error de validacion) -->
 				<!-- puede tomar valores entre 0 y 100 por ser un porcentaje-->
 				<h:outputLabel for="hum" value="Humedad (%)" />
-				<p:inputText id="hum" value="#{climaticDataView.climaticData.humidity}" required="true"
+				<p:inputText id="hum"
+					value="#{climaticDataView.climaticData.humidity}" required="true"
 					requiredMessage="#{climaticDataView.reqMsg}" label="Humedad"
 					style="width: 50px">
 					<f:validateLongRange minimum="0" maximum="100"></f:validateLongRange>
@@ -59,9 +62,10 @@
 				<!-- campo "precipitacion" y mensaje asociado (en caso de error de validacion) -->
 				<!-- puede tomar cualquier valor positivo, aunque aquí se limita a 1000 -->
 				<h:outputLabel for="prec" value="Precipitación (mm)" />
-				<p:inputText id="prec" value="#{climaticDataView.climaticData.precipitation}"
+				<p:inputText id="prec"
+					value="#{climaticDataView.climaticData.precipitation}"
 					required="true" requiredMessage="#{climaticDataView.reqMsg}"
-					label="Precipitacion" style="width: 50px" >
+					label="Precipitacion" style="width: 50px">
 					<f:validateLongRange minimum="0" maximum="1000"></f:validateLongRange>
 				</p:inputText>
 				<p:message for="prec" />
@@ -70,14 +74,16 @@
 				<!-- puede ser cualquier día -->
 				<p:outputLabel for="fecha" value="Fecha" />
 				<p:calendar id="fecha" required="true"
-					requiredMessage="#{climaticDataView.reqMsg}" value="#{climaticDataView.climaticData.date}"
-					showOn="button" pattern="dd/MM/yyyy" label="Fecha" />
+					requiredMessage="#{climaticDataView.reqMsg}"
+					value="#{climaticDataView.climaticData.date}" showOn="button"
+					pattern="dd/MM/yyyy" label="Fecha" />
 				<p:message for="fecha" />
 
 				<!-- campo "tipo de dia" y mensaje asociado (en caso de error de validacion) -->
 				<!-- toma los tipos de dias de la base de datos -->
 				<h:outputLabel for="tipodia" value="Tipo de día" />
-				<p:selectOneMenu id="tipodia" value="#{climaticDataView.climaticData.dayTypeName}"
+				<p:selectOneMenu id="tipodia"
+					value="#{climaticDataView.climaticData.dayTypeName}"
 					required="true" requiredMessage="#{climaticDataView.reqMsg}"
 					style="width:125px" label="Día">
 					<f:selectItem itemLabel="Tipo de Día" itemValue="" />
@@ -88,15 +94,17 @@
 
 			</h:panelGrid>
 			<!-- navegacion: crear dato, volver a menu principal e ir a listado de datos -->
-			<p:commandButton id="crear" value="Añadir" ajax="false" icon="ui-icon-disk"
-				validateClient="true" actionListener="#{climaticDataView.insertClimaticData}"
+			<p:commandButton id="crear" value="Añadir" icon="ui-icon-disk"
+				validateClient="true"
+				actionListener="#{climaticDataView.insertClimaticData}"
 				update="form growl" />
-			<p:commandButton id="listado" value="Listado de Datos" icon="ui-icon-document"
-				action="listadatos" validateClient="false" immediate="true"
-				ajax="false" />
-			<p:commandButton id="volver" value="Volver a Inicio" icon="ui-icon-home"
-				action="index" validateClient="false" immediate="true" ajax="false" />
-				
+			<p:commandButton id="listado" value="Listado de Datos"
+				icon="ui-icon-document" action="listadatos" validateClient="false"
+				immediate="true" />
+
+			<p:commandButton id="volver" value="Volver a Inicio" action="index"
+				validateClient="false" immediate="true" icon="ui-icon-home" />
+
 		</p:panel>
 	</h:form>
 </body>
